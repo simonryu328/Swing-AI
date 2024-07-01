@@ -4,7 +4,7 @@
   <img src="images/benhogan.jpg" alt="Ben Hogan" />
 </p>
 
-Welcome to Swing-AI, your virtual golf instructor modeled after the legendary Ben Hogan! Using the latest in Retrieval-Augmented Generation (RAG) technology, this AI provides expert advice on golf swing techniques, mindset, philosophy, and more, based on Hogan's classic book "Five Lessons: The Fundamentals of Golf."
+Welcome to Swing-AI, your virtual golf instructor modeled after the legendary [Ben Hogan](https://en.wikipedia.org/wiki/Ben_Hogan)! Using the latest in Retrieval-Augmented Generation (RAG) technology, this AI provides expert advice on golf swing techniques, mindset, philosophy, and more, based on Hogan's classic book ["Five Lessons: The Fundamentals of Golf"](https://www.si.com/golf/instruction/ben-hogans-five-lessons-endures-time-technology-scrutiny).
 
 ## Features
 
