@@ -8,6 +8,14 @@ from langchain.chains import create_extraction_chain_pydantic
 from dotenv import load_dotenv
 from rich import print
 
+from chunk_prompts import (
+    UPDATE_SUMMARY_PROMPT,
+    UPDATE_TITLE_PROMPT,
+    GET_SUMMARY_PROMPT,
+    GET_TITLE_PROMPT,
+    FIND_RELEVANT_PROMPT,
+)
+
 load_dotenv()
 
 class AgenticChunker:
@@ -49,6 +57,7 @@ class AgenticChunker:
         # If a chunk was found then add the proposition to it
         if chunk_id:
             if self.print_logging:
+                print("RELEVANT CHUNK FOUND")
                 print (f"Chunk Found ({self.chunks[chunk_id]['chunk_id']}), adding to: {self.chunks[chunk_id]['title']}")
             self.add_proposition_to_chunk(chunk_id, proposition)
             return
@@ -98,7 +107,7 @@ class AgenticChunker:
             ]
         )
 
-        runnable = PROMPT | self.llm
+        runnable = UPDATE_SUMMARY_PROMPT | self.llm
 
         new_chunk_summary = runnable.invoke({
             "proposition": "\n".join(chunk['propositions']),
@@ -137,7 +146,7 @@ class AgenticChunker:
             ]
         )
 
-        runnable = PROMPT | self.llm
+        runnable = UPDATE_TITLE_PROMPT | self.llm
 
         updated_chunk_title = runnable.invoke({
             "proposition": "\n".join(chunk['propositions']),
@@ -174,7 +183,7 @@ class AgenticChunker:
             ]
         )
 
-        runnable = PROMPT | self.llm
+        runnable = GET_SUMMARY_PROMPT | self.llm
 
         new_chunk_summary = runnable.invoke({
             "proposition": proposition
@@ -209,7 +218,7 @@ class AgenticChunker:
             ]
         )
 
-        runnable = PROMPT | self.llm
+        runnable = GET_TITLE_PROMPT | self.llm
 
         new_chunk_title = runnable.invoke({
             "summary": summary
@@ -282,9 +291,9 @@ class AgenticChunker:
             ]
         )
 
-        runnable = PROMPT | self.llm
+        runnable = FIND_RELEVANT_PROMPT | self.llm
 
-        print(current_chunk_outline)
+        # print(current_chunk_outline)
         print("-----------------------------------")
 
         chunk_found = runnable.invoke({
@@ -303,9 +312,9 @@ class AgenticChunker:
         extraction_chain = create_extraction_chain_pydantic(pydantic_schema=ChunkID, llm=self.llm)
         extraction_found = extraction_chain.invoke(chunk_found)["text"]
         if extraction_found:
+            print("RELEVANT CHANK HAS BEEN FOUND")
+            print("RELEVANT CHUNK: ", chunk_found)
             chunk_found = extraction_found[0].chunk_id
-
-        print("EXTRACTION CHUNK FOUND ", chunk_found)
 
         # If you got a response that isn't the chunk id limit, chances are it's a bad response or it found nothing
         # So return nothing
