@@ -71,14 +71,14 @@ This project implements an advanced Retrieval-Augmented Generation (RAG) chatbot
 
 ## Copyright Notice and Legal Disclaimer
 
-This project uses content derived from published golf instruction materials, including books and other resources. The use of this content is intended for educational and research purposes only.
+This project uses content derived from published golf instruction materials. The use of this content is intended for educational and research purposes only.
 
 Important points to note:
 
 1. This project is not affiliated with, endorsed by, or connected to Ben Hogan, his estate, or any official Ben Hogan branded entities.
 2. The content used in this project may be subject to copyright. Users should be aware that the redistribution or commercial use of this content may infringe on copyright laws.
 3. This project is a proof-of-concept and should not be used for commercial purposes without proper licensing and permissions from copyright holders.
-4. If you are a copyright holder and believe that your work has been used inappropriately in this project, please contact [Your Contact Information] to address the issue.
+4. If you are a copyright holder and believe that your work has been used inappropriately in this project, please contact [simonryu328@gmail.com] to address the issue.
 
 Users are advised to seek proper legal advice before using this project or its outputs for any purpose other than personal, educational use.
 
