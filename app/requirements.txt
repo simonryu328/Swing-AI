@@ -1,0 +1,15 @@
+datasets
+pandas
+torch
+Pillow
+transformers
+faiss-cpu==1.7.4
+numpy
+langchain
+langchain-community
+langchain-core
+langchain-openai
+python-dotenv
+rich
+chromadb
+streamlit
